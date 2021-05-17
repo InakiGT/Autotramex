@@ -1,9 +1,6 @@
-import React from 'react';;
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
 
-import Header from "./header"
-import "./layout.css"
+import Footer from './footer';
 
 const Layout = ({ children }) => {
 
@@ -11,7 +8,9 @@ const Layout = ({ children }) => {
     <>
       <h1>Esto es un Layout</h1>
 
-      {children}
+        {children}
+
+      <Footer />
     </>
   )
 }
