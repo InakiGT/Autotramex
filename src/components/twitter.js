@@ -1,0 +1,36 @@
+import React from 'react';
+import {useStaticQuery, graphql} from 'gatsby';
+import {css} from '@emotion/react';
+import Img from 'gatsby-image';
+
+const Twitter = () => {
+
+    const tw = useStaticQuery(graphql`
+        query {
+            placeholderImage: file(relativePath: { eq: "twitter-brands.png" }) {
+                childImageSharp {
+                    fluid(maxWidth: 500) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+    `);
+    
+    if(!tw.placeholderImage.childImageSharp.fluid) return <p>T</p>;
+
+    return (
+        <a
+            href="https://twitter.com/?lang=es"
+        >
+            <Img 
+                fluid={tw.placeholderImage.childImageSharp.fluid}
+                css={css`
+                    width: 50px;
+                `}
+            />
+        </a>
+    );
+}
+ 
+export default Twitter;
