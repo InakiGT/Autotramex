@@ -26,7 +26,7 @@ const Contenedor = styled.div`
     }
 
     @media (max-width: 1100px) {
-    max-width: 90%;
+        max-width: 90%;
     }
 `;
 
@@ -43,9 +43,7 @@ const Secundario = styled.div`
         margin: 1rem 0;
     }
 
-    @media (min-width: 768px) {
-        flex: 0 0 calc(33% - 3rem);
-    }
+    flex: 0 0 calc(33% - 3rem);
 `;
 
 const Redes = styled.div`

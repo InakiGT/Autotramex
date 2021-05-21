@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 import Logo from './logo';
 
@@ -29,7 +30,11 @@ const Navegacion = styled.nav`
 const Header = () => {
     return ( 
         <Heading>
-            <Logo />
+            <Link
+                to={'/'}
+            >
+                <Logo />
+            </Link>
 
             <Navegacion>
                 <p>Menu</p>

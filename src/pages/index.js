@@ -30,6 +30,10 @@ const ContenedorNosotros = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 `;
 
 const Nosotros = styled.div`
@@ -39,6 +43,11 @@ const Nosotros = styled.div`
   -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
   -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
   box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+
+  @media (max-width: 550px) {
+    flex: 0 0 calc(33% - 2rem);
+    margin-bottom: 3rem;
+  }
 
 `;
 

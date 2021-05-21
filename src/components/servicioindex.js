@@ -30,6 +30,17 @@ const Contenido = styled.div`
         font-size: 3rem;
         flex: 0 0 calc(50% - 1rem);
     }
+
+    div {
+        @media (max-width: 550px) {
+            max-width: 95%;
+            margin: 1rem auto 0 auto;
+        }
+    }
+
+    @media (max-width: 550px) {
+        flex-direction: column-reverse;
+    }
 `;
 
 const ServicioIndex = () => {
@@ -51,12 +62,14 @@ const ServicioIndex = () => {
             <Titulo>Gruas</Titulo>
             <Contenido>
                 <p>Nuam maximus luctus mauris, a lobortis mauris rhoncus non. Donec ac sapien et purus ultricies vulputate nec nec justo. Etiam accumsan nisl sit amet interdum consectetur. Etiam dictum sem et ligula fringilla, vitae laoreet ante ultrices.</p>
-                <Img
-                    fluid={logo.placeholderImage.childImageSharp.fluid}
-                    css={css`
-                        width: 400px;
-                    `}
-                />
+                <div>
+                    <Img
+                        fluid={logo.placeholderImage.childImageSharp.fluid}
+                        css={css`
+                            width: 400px;
+                        `}
+                    />
+                </div>
             </Contenido>
       </Servicio>
      );
