@@ -24,8 +24,6 @@ const Heading = styled.header`
     }
 `;
 
-const Navegacion = styled.nav`
-`;
 
 const Header = () => {
     return ( 
@@ -36,9 +34,9 @@ const Header = () => {
                 <Logo />
             </Link>
 
-            <Navegacion>
+            <nav>
                 <p>Menu</p>
-            </Navegacion>
+            </nav>
         </Heading>
      );
 }

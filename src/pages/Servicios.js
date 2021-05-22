@@ -138,7 +138,7 @@ const Servicios = () => {
                     <SaberMas>
                         <p>¿Quieres saber más o deseas contratar alguno de nuestros servicios?</p>
                         <Boton 
-                            to={'Contacto'}
+                            to={'/Contacto'}
                             text={'Contactanos'}
                         />
                     </SaberMas>

@@ -50,6 +50,10 @@ const Redes = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 550px) {
+        margin-bottom: 3rem;
+    }
 `;
 
 const Red = styled.div`

@@ -25,11 +25,6 @@ const Logo = () => {
             css={css`
                 width: 200px;
                 height: 85px;
-
-                @media (max-width: 768px) {
-                    width: 100px;
-                    height: 60px;
-                }
             `}
         />
     );

@@ -27,6 +27,9 @@ const Facebook = () => {
                 fluid={fb.placeholderImage.childImageSharp.fluid}
                 css={css`
                     width: 50px;
+                    @media (max-width: 550px) {
+                        width: 40px;
+                    }
                 `}
             />
         </a>
