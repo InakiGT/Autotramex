@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 import Logo from './logo';
+import Navegacion from './navegacion';
 
 const Heading = styled.header`
     background-color: #292929;
@@ -34,9 +35,7 @@ const Header = () => {
                 <Logo />
             </Link>
 
-            <nav>
-                <p>Menu</p>
-            </nav>
+            <Navegacion />
         </Heading>
      );
 }
