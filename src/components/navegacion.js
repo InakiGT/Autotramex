@@ -16,11 +16,10 @@ const Enlace = styled(Link)`
     text-decoration: none;
     color: #FFFFFF;
     font-size: 3rem;
+    transition: all .3s ease;
 
-    a {
-        &::hover {
-            color: rgba(255, 255, 255, 10%);
-        }
+    &:hover {
+        color: rgba(255, 255, 255, 75%);
     }
 
     @media (min-width: 768px) {

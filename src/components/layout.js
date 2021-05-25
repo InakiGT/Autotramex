@@ -4,6 +4,7 @@ import {Global, css} from '@emotion/react';
 
 import Header from './header';
 import Footer from './footer';
+import ElementosContacto from './elementoscontacto';
 
 const Layout = ({ children }) => {
 
@@ -46,6 +47,8 @@ const Layout = ({ children }) => {
       <Header />
 
         {children}
+
+      <ElementosContacto />
 
       <Footer />
     </>
