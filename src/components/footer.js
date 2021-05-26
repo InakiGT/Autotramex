@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {graphql, useStaticQuery} from 'gatsby';
 
 import Facebook from './facebook';
 import Twitter from './twitter';
@@ -38,12 +39,21 @@ const Principales = styled.p`
 
 const Secundario = styled.div`
     font-size: 3.5rem;
+    flex: 0 0 calc(33% - 3rem);
+
+    a {
+        text-decoration: none;
+        color: #FFF;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            color: rgba(255, 255, 255, 50%);
+        }
+    }
 
     p {
         margin: 1rem 0;
     }
-
-    flex: 0 0 calc(33% - 3rem);
 `;
 
 const Redes = styled.div`
@@ -73,8 +83,20 @@ const Derechos = styled.div`
 
 const Footer = () => {
 
-    const listado = ['550000000', '5510101010', '5520202020'];
+    const data = useStaticQuery(graphql`
+        query {
+            allDatoCmsNumero {
+                nodes {
+                    numerocelular
+                }
+            }
+        }
+    `);
+
+    const listado = data.allDatoCmsNumero.nodes;
+    
     const aleatorio = Math.floor(Math.random()*listado.length);
+    console.log(listado[aleatorio]);
 
     return ( 
         <Foot>
@@ -93,12 +115,12 @@ const Footer = () => {
                 <Secundario>
                     <Principales>Contacto</Principales>
                     <div>
-                        <p>Tel. {listado[aleatorio]}</p>
-                        <a>Whatsapp</a>
+                        <p>Tel. <a href="tel:525620931205">{listado[aleatorio].numerocelular}</a></p>
+                        <a href="https://wa.me/525620931205">Whatsapp</a>
                     </div>
                 </Secundario>
                 <Secundario>
-                    <p>Texto</p>
+                    <p></p>
                 </Secundario>
             </Contenedor>
             <Derechos>

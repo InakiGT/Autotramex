@@ -4,17 +4,8 @@ import {useStaticQuery, graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import {css} from '@emotion/react';
 
+import ServiceIndex from './serviceindex';
 
-const Servicio = styled.div`
-    -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: rgba(47, 47, 47, 73%);
-    padding: 3.3rem 3.5rem;
-    margin-bottom: 3rem;
-`;
 
 const Titulo = styled.p`
     font-size: 4.5rem;
@@ -43,14 +34,44 @@ const Contenido = styled.div`
     }
 `;
 
+const Tramite = styled.div`
+    -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+    -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(47, 47, 47, 73%);
+    padding: 3.3rem 3.5rem;
+    margin-bottom: 3rem;
+`;
+
+
 const ServicioIndex = () => {
 
-    const logo = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
         query {
-            placeholderImage: file(relativePath: { eq: "mazda.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600) {
-                        ...GatsbyImageSharpFluid
+            allDatoCmsServicio(limit: 2) {
+                nodes {
+                    titulo
+                    id
+                    textoInformacion
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            }
+
+            allDatoCmsPresentacionTramite {
+                nodes {
+                    texto
+                    imagen {
+                        alt
+                        fluid {
+                             ...GatsbyDatoCmsFluid
+                        }
                     }
                 }
             }
@@ -58,20 +79,32 @@ const ServicioIndex = () => {
     `);
 
     return ( 
-        <Servicio>
-            <Titulo>Gruas</Titulo>
-            <Contenido>
-                <p>Nuam maximus luctus mauris, a lobortis mauris rhoncus non. Donec ac sapien et purus ultricies vulputate nec nec justo. Etiam accumsan nisl sit amet interdum consectetur. Etiam dictum sem et ligula fringilla, vitae laoreet ante ultrices.</p>
-                <div>
-                    <Img
-                        fluid={logo.placeholderImage.childImageSharp.fluid}
-                        css={css`
-                            width: 400px;
-                        `}
+        <div>
+            {
+                data.allDatoCmsServicio.nodes.map(servicio => (
+                    <ServiceIndex
+                        key={servicio.id}
+                        servicio={servicio}
                     />
-                </div>
-            </Contenido>
-      </Servicio>
+                ))
+            }
+            
+            <Tramite>
+                <Titulo>Trámites</Titulo>
+                <Contenido>
+                    <p>{data.allDatoCmsPresentacionTramite.nodes[0].texto}</p>
+                    <div>
+                        <Img
+                            fluid={data.allDatoCmsPresentacionTramite.nodes[0].imagen.fluid}
+                            alt={data.allDatoCmsPresentacionTramite.nodes[0].imagen.alt}
+                            css={css`
+                                width: 400px;
+                            `}
+                        />
+                    </div>
+                </Contenido>
+            </Tramite>
+      </div>
      );
 }
  

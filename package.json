@@ -8,6 +8,7 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
+    "emailjs-com": "^2.6.4",
     "gatsby": "^3.4.1",
     "gatsby-image": "^3.5.0",
     "gatsby-plugin-emotion": "^6.5.0",

@@ -27,12 +27,20 @@ const ElementosContacto = () => {
 
     return ( 
         <Contenedor>
-            <img 
-                src={Whatsapp}
-            />
-            <img
-                src={Llamda}
-            />
+            <a
+                href="https://wa.me/525620931205"
+            >
+                <img 
+                    src={Whatsapp}
+                />
+            </a>
+            <a
+                href="tel:5620931205"
+            >
+                <img
+                    src={Llamda}
+                />
+            </a>
         </Contenedor>
      );
 }

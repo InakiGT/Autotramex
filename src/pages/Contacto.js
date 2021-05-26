@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {graphql, useStaticQuery} from 'gatsby';
+import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
+import Telefono from '../components/telefono';
+import Correo from '../components/correo';
+import Formulario from '../components/formulario';
 
 
 const Contenedor = styled.div`
@@ -40,6 +45,20 @@ const ContenedorContacto = styled.div`
     }
 `;
 
+const ContenedorUbicacion = styled.div`
+    max-width: 900px;
+    background-color: #292929;
+    -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+    -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
+    padding: 1.5rem;
+    margin: 0 auto 5rem auto;
+
+    @media (max-width: 768px) {
+        padding: 2rem;
+    }
+`;
+
 const Conct = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +69,7 @@ const Conct = styled.div`
     }
 
     p {
-        font-size: 5rem;
+        font-size: 4.7rem;
     }
 
     @media (max-width: 768px) {
@@ -59,7 +78,7 @@ const Conct = styled.div`
         }
 
         p {
-            font-size: 4rem;
+            font-size: 3.5rem;
         }
     }
 `;
@@ -76,12 +95,46 @@ const TextoUbicacion = styled.div`
 `;
 
 const Contacto = () => {
+
+    const data = useStaticQuery(graphql`
+        query {
+            allDatoCmsImagenUbicacion {
+                nodes {
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            }
+
+            allDatoCmsNumero {
+                nodes {
+                    numerocelular
+                    id
+                }
+            }
+
+            allDatoCmsCorreo {
+                nodes {
+                    correoelectronico
+                    id
+                }
+            }
+            allDatoCmsUbicacion {
+                nodes {
+                    ubicacion
+                }
+            }
+        }
+    `);
+
     return ( 
         <Layout>
             <Contenedor>
                 <h1>Contacto</h1>
                 <div>
-                    <p>Imagen</p>
 
                     <Contactar>
                         <h2>Llámanos a nuestros números o a nuestro correo</h2>
@@ -90,14 +143,27 @@ const Contacto = () => {
                                 <div>
                                     <p>Tels:</p>
                                     <div>
-                                        <p>5512984423</p>
-                                        <p>5577542390</p>
+                                        {
+                                            data.allDatoCmsNumero.nodes.map(numero => (
+                                                <Telefono
+                                                    key={numero.id}
+                                                    numero={numero}
+                                                />
+                                            ))
+                                        }
                                     </div>
                                 </div>
                                 <div>
                                     <p>Correos:</p>
                                     <div>
-                                        <p>contacto@autotramex.com</p>
+                                        {
+                                            data.allDatoCmsCorreo.nodes.map(correo => (
+                                                <Correo
+                                                    key={correo.id}
+                                                    correo={correo}
+                                                />
+                                            ))
+                                        }
                                     </div>
                                 </div>
                             </Conct>
@@ -106,17 +172,22 @@ const Contacto = () => {
                     <Contactar>
                         <TitutloFormulario>Llena el formulario y nos pondremos en contacto contigo</TitutloFormulario>
                         <ContenedorContacto>
-                            <p>Form</p>
+                            <Formulario />
                         </ContenedorContacto>
                     </Contactar>
                     <Contactar>
                         <h2>Ubicación</h2>
-                        <ContenedorContacto>
-                            <div></div>
+                        <ContenedorUbicacion>
+                            <div>
+                                <Img 
+                                    fluid={data.allDatoCmsImagenUbicacion.nodes[0].imagen.fluid}
+                                    alt={data.allDatoCmsImagenUbicacion.nodes[0].imagen.alt}
+                                />
+                            </div>
                             <TextoUbicacion>
-                                <p>Granaderos 324 Col. Los Cipreses Iztapalapa, 09810, CDMX</p>
+                                <p>{data.allDatoCmsUbicacion.nodes[0].ubicacion}</p>
                             </TextoUbicacion>
-                        </ContenedorContacto>
+                        </ContenedorUbicacion>
                     </Contactar>
                 </div>
             </Contenedor>

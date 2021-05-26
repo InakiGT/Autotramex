@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {graphql, useStaticQuery} from 'gatsby';
+import Img from 'gatsby-image';
+import {css} from '@emotion/react';
 
 import Layout from '../components/layout';
 import Boton from '../components/boton';
+import Servicio from '../components/servicio';
 
 
 const Contenedor = styled.div`
@@ -20,15 +24,6 @@ const Contenedor = styled.div`
   }
 `;
 
-const Servicio = styled.div`
-    background-color: #292929;
-    -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    padding: 2.5rem 6rem;
-    margin: 5rem 0;
-`;
-
 const Titulo = styled.p`
     text-align: center;
     font-size: 5rem;
@@ -40,11 +35,12 @@ const Titulo = styled.p`
 const Contenido = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     p {
         font-size: 4rem;
         line-height: 1;
-        flex: 0 0 calc(50% - 2rem);
+        flex: 0 0 calc(50% - 3rem);
     }
 
     @media (max-width: 550px) {
@@ -92,41 +88,68 @@ const SaberMas = styled.div`
 `;
 
 const Servicios = () => {
+
+    const data = useStaticQuery(graphql`
+        query {
+            allDatoCmsServicio {
+                nodes {
+                    titulo
+                    textoInformacion
+                    id
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            }
+            allDatoCmsPresentacionTramite {
+                nodes {
+                    texto
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
     return ( 
         <Layout>
             <Contenedor>
                 <h1>Servicios</h1>
                 <div>
-                    <Servicio>
-                        <Titulo>Gruas</Titulo>
-                        <Contenido>
-                            <p>Imagen</p>
-                            <p>Donec ut purus et sem
-                            hendrerit venenatis sit
-                            amet nec sem. Fusce
-                            porta velit imperdiet
-                            tellus lacinia auctor.
-                            Etiam sit amet tellus
-                            non massa tempus
-                            malesuada in nec enim.
-                            Donec eleifend ex id
-                            placerat semper.</p>
-                        </Contenido>
-                    </Servicio>
+
+                    {
+                        data.allDatoCmsServicio.nodes.map(servicio => (
+                            <Servicio
+                                key={servicio.id}
+                                servicio={servicio}
+                            />
+                        ))
+                    }
+                    
                     <Tramite>
                         <Titulo>Trámites</Titulo>
                         <Contenido>
-                            <p>Imagen</p>
-                            <p>Donec ut purus et sem
-                            hendrerit venenatis sit
-                            amet nec sem. Fusce
-                            porta velit imperdiet
-                            tellus lacinia auctor.
-                            Etiam sit amet tellus
-                            non massa tempus
-                            malesuada in nec enim.
-                            Donec eleifend ex id
-                            placerat semper.</p>
+                            <Img
+                                fluid={data.allDatoCmsPresentacionTramite.nodes[0].imagen.fluid}
+                                alt={data.allDatoCmsPresentacionTramite.nodes[0].imagen.alt}
+                                css={css`
+                                    width: 450px;
+                                    max-height: 400px;
+
+                                    @media (max-width: 550px) {
+                                        max-width: 95%;
+                                        margin: 0 auto;
+                                    }
+                                `}
+                            />
+                            <p>{data.allDatoCmsPresentacionTramite.nodes[0].texto}</p>
                         </Contenido>
                         <Btn>
                             <Boton

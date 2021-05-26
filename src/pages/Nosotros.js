@@ -57,13 +57,22 @@ const Adicional = styled.div`
 
 const Nosotros = () => {
 
-    const image = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
         query {
-            placeholderImage: file(relativePath: { eq: "Nosotros.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 1200) {
-                        ...GatsbyImageSharpFluid
+            allDatoCmsImagenNosotro {
+                nodes {
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
                     }
+                }
+            }
+            allDatoCmsNosotro {
+                nodes {
+                  contenidoSobrenosotros
+                  contenidoQuienessomos
                 }
             }
         }
@@ -75,7 +84,8 @@ const Nosotros = () => {
                 
                 <Contenido>
                     <Img
-                        fluid={image.placeholderImage.childImageSharp.fluid}
+                        fluid={data.allDatoCmsImagenNosotro.nodes[0].imagen.fluid}
+                        alt={data.allDatoCmsImagenNosotro.nodes[0].imagen.alt}
                         css={css`
                             max-width: 100%;
                             max-height: 800px;
@@ -85,17 +95,11 @@ const Nosotros = () => {
                 </Contenido>
                 <Contenido>
                     <h2>Sobre nosotros</h2>
-                    <p>Trabajamos apoyados en la tecnología, enfocados en optimizar tiempos facilitando la gestión de
-                    documentos y trámites en un solo clic.
-                    Los trámites se solicitan de manera dígital y se entrega de forma presencial.
-                    Nos especializamos en trámites vehiculares en: Morelos, CDMX y EDOMEX.
-                    Además nuestro sistema nos apoya notificando trámites futuros y vencimientos.</p>
+                    <p>{data.allDatoCmsNosotro.nodes[0].contenidoSobrenosotros}</p>
                 </Contenido>
                 <Contenido>
                     <h2>¿Quiénes Somos?</h2>
-                    <p>Somos la mejor empresa de gestión digital vehicular del sector, nuestra excelencia y gran servicio
-                    se basan en precios bajos, manejo confidencial de banco de datos y seguimiento de fututas
-                    gestiones.</p>
+                    <p>{data.allDatoCmsNosotro.nodes[0].contenidoQuienessomos}</p>
                 </Contenido>
                 <Contenido>
                     <h2>Nuestro proceso</h2>

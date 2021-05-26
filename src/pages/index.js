@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 
 import Boton from '../components/boton';
 import ServicioIndex from '../components/servicioindex';
+import IndexNosotros from '../components/indexnosotros';
 
 const Contenedor = styled.div`
   max-width: 1000px;
@@ -24,40 +25,6 @@ const Seccion = styled.section`
     font-weight: lighter;
     margin: 4rem 0;
   }
-`;
-
-const ContenedorNosotros = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  @media (max-width: 550px) {
-    flex-direction: column;
-  }
-`;
-
-const Nosotros = styled.div`
-  background-color: rgba(47, 47, 47, 73%);
-  padding: 4rem 3rem;
-  flex: 0 0 calc(33% - 1rem);
-  -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-  -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-  box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-
-  @media (max-width: 550px) {
-    flex: 0 0 calc(33% - 2rem);
-    margin-bottom: 3rem;
-  }
-
-`;
-
-const TitutloNosotros = styled.p`
-  margin-top: 0;
-  font-size: 4.2rem;
-`;
-
-const TextoNosotros = styled.p`
-  font-size: 2.7rem;
 `;
 
 const ContenedorTramites = styled.div`
@@ -112,41 +79,12 @@ const IndexPage = () => {
       <Contenedor>
 
         <div>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
-          <h1>Autotramex</h1>
         </div>
 
         <Seccion>
           <h2>Sobre nosotros</h2>
-          <ContenedorNosotros>
-            <Nosotros>
-              <TitutloNosotros>¿Quiénes somos?</TitutloNosotros>
-
-              <TextoNosotros>Donec dapibus erat id aliquet rhoncus. Fusce ut luctus nisl. Nunc lacinia arcu a tortor egestas tristique. Nullam quis molestie sapien, sed venenatis ligula. Suspendisse vitae tempor enim. Nunc id leo posuere, convallis dui sed, sollicitudin lectus. Donec vehicula porttitor sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget molestie ipsum, venenatis venenatis nisi.</TextoNosotros>
-            </Nosotros>
-            <Nosotros>
-              <TitutloNosotros>¿Por qué nosotros?</TitutloNosotros>
-
-              <TextoNosotros>Donec dapibus erat id aliquet rhoncus. Fusce ut luctus nisl. Nunc lacinia arcu a tortor egestas tristique. Nullam quis molestie sapien, sed venenatis ligula. Suspendisse vitae tempor enim. Nunc id leo posuere, convallis dui sed, sollicitudin lectus. Donec vehicula porttitor sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget molestie ipsum, venenatis venenatis nisi.</TextoNosotros>
-            </Nosotros>
-            <Nosotros>
-              <TitutloNosotros>Beneficios</TitutloNosotros>
-
-              <TextoNosotros>Donec dapibus erat id aliquet rhoncus. Fusce ut luctus nisl. Nunc lacinia arcu a tortor egestas tristique. Nullam quis molestie sapien, sed venenatis ligula. Suspendisse vitae tempor enim. Nunc id leo posuere, convallis dui sed, sollicitudin lectus. Donec vehicula porttitor sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget molestie ipsum, venenatis venenatis nisi.</TextoNosotros>
-            </Nosotros>
-          </ContenedorNosotros>
+        
+          <IndexNosotros />
 
           <Btn>
             <Boton
@@ -181,9 +119,6 @@ const IndexPage = () => {
         <Seccion>
           <h2>Servicios</h2>
           <ContenedorServicios>
-            <ServicioIndex />
-            <ServicioIndex />
-            <ServicioIndex />
             <ServicioIndex />
           </ContenedorServicios>
           <Btn>

@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {graphql, useStaticQuery} from 'gatsby';
 
 import Layout from '../components/layout';
 import Boton from '../components/boton';
+import Tramite from '../components/tramite';
 
 
 const Contenedor = styled.div`
@@ -18,39 +20,6 @@ const Contenedor = styled.div`
   @media (max-width: 1100px) {
     max-width: 90%;
   }
-`;
-
-const Tramite = styled.div`
-    background-color: #292929;
-    -webkit-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    -moz-box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.25);
-    padding: 2.5rem 6rem;
-    margin: 5rem 0;
-`;
-
-const Titulo = styled.p`
-    text-transform: capitalize;
-    font-size: 4rem;
-    margin: 0 0 1rem 0;
-`;
-
-const Contenido = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    ol {
-        flex: 0 0 calc(50% - 2rem);
-        font-size: 3rem;
-
-        li {
-            margin-bottom: 3rem;
-        }
-
-        &::last-child {
-                margin-bottom: 0;
-        }
-    }
 `;
 
 const SaberMas = styled.div`
@@ -75,38 +44,51 @@ const SaberMas = styled.div`
 `;
 
 const Tramites = () => {
+
+    const data = useStaticQuery(graphql`
+        query {
+            allDatoCmsTramite {
+                nodes {
+                    titulo
+                    id
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            }
+
+            allDatoCmsRequisito {
+                nodes {
+                    id
+                    servicioAlQuePertenece
+                    texto
+                }
+            }
+        }
+    `);
+
     return ( 
         <Layout>
             <Contenedor>
                 <h1>Trámites y requisitos</h1>
 
                 <div>
-                    <Tramite>
-                        <Titulo>Reemplacamientos</Titulo>
-                        <Contenido>
-                            <p>Imagen</p>
-                            <ol>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                            </ol>
-                        </Contenido>
-                    </Tramite>
-                    <Tramite>
-                        <Titulo>Reemplacamientos</Titulo>
-                        <Contenido>
-                            <p>Imagen</p>
-                            <ol>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                                <li>Duis nunc turpis, eleifend vitae odio at</li>
-                            </ol>
-                        </Contenido>
-                    </Tramite>
+                    {
+                        data.allDatoCmsTramite.nodes.map(tramite => (
+                            <Tramite
+                                key={tramite.id}
+                                requisitos={data.allDatoCmsRequisito.nodes}
+                                tramite={tramite}
+                            />
+                        ))
+                    }
+                </div>
+
+                <div>
+                    
 
                     <SaberMas>
                         <p>¿Quieres saber más acerca de algún trámite?</p>
