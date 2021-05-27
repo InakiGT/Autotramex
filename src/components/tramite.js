@@ -69,7 +69,7 @@ const Tramite = ({tramite, requisitos}) => {
                 <ol>
                     {
                         requisitos.map(requisito => {
-                            if(requisito.servicioAlQuePertenece == tramite.titulo) {
+                            if(requisito.servicioAlQuePertenece === tramite.titulo) {
                                 return (
                                     <li
                                         key={requisito.id}

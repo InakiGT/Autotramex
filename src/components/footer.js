@@ -96,7 +96,6 @@ const Footer = () => {
     const listado = data.allDatoCmsNumero.nodes;
     
     const aleatorio = Math.floor(Math.random()*listado.length);
-    console.log(listado[aleatorio]);
 
     return ( 
         <Foot>

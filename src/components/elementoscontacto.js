@@ -32,6 +32,7 @@ const ElementosContacto = () => {
             >
                 <img 
                     src={Whatsapp}
+                    alt="Icono Whatsapp"
                 />
             </a>
             <a
@@ -39,6 +40,7 @@ const ElementosContacto = () => {
             >
                 <img
                     src={Llamda}
+                    alt="Icono Llamada"
                 />
             </a>
         </Contenedor>

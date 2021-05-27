@@ -14,6 +14,10 @@ const Btn = styled(Link)`
     font-size: 2rem;
     transition: all .3s ease;
 
+    p {
+        margin: 0;
+    }
+
     &:hover {
         background-color: #C60103;
     }
@@ -25,7 +29,7 @@ const Boton = ({text, to}) => {
         <Btn
             to={to}
         >
-            <a>{text}</a>
+            {text}
         </Btn>
      );
 }

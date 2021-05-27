@@ -37,22 +37,22 @@ const Navegacion = () => {
             <Enlace
                 to={'/Nosotros'}
             >
-                <a>Nosotros</a>
+                <p>Nosotros</p>
             </Enlace>
             <Enlace
                 to={'/Servicios'}
             >
-                <a>Servicios</a>
+                <p>Servicios</p>
             </Enlace>
             <Enlace
                 to={'/Tramites'}
             >
-                <a>Trámites</a>
+                <p>Trámites</p>
             </Enlace>
             <Enlace
                 to={'/Contacto'}
             >
-                <a>Contacto</a>
+                <p>Contacto</p>
             </Enlace>
         </Nav>
     );
