@@ -48,8 +48,6 @@ const Contenido = styled.div`
 
 const Tramite = ({tramite, requisitos}) => {
 
-    console.log(requisitos)
-
     return ( 
         <Tramit>
             <Titulo>{tramite.titulo}</Titulo>

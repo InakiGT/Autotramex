@@ -153,7 +153,7 @@ const Servicios = () => {
                         </Contenido>
                         <Btn>
                             <Boton
-                                to={'Tramites'}
+                                to={'/Tramites'}
                                 text={"Trámites"}
                             />
                         </Btn>
