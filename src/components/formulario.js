@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import emailjs from 'emailjs-com';
 
@@ -60,20 +60,78 @@ const Enviar = styled.button`
 
     &:hover {
         background-color: #C60103;
+        cursor: pointer;
     }
+`;
+
+const MensajeCorrecto = styled.div`
+    text-align: center;
+    background-color: rgba(127, 247, 95, 80%);
+    max-width: 60%;
+    margin: 0 auto 2rem auto;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+`;
+
+const MensajeError = styled.div`
+    text-align: center;
+    background-color: rgba(248, 68, 60, 80%);
+    max-width: 60%;
+    margin: 0 auto 2rem auto;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
 `;
 
 const Formulario = () => {
 
+    //State del formulario
+    const [mensaje, setMensaje] = useState(null);
+    const [nombre, setNombre] = useState('');
+    const [celular, setCelular] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [texto, setTexto] = useState('');
+
     const sendEmail = e => {
         e.preventDefault();
 
-        emailjs.sendForm('service_0cq64ye', 'template_8xfu7og', e.target, 'user_Pp0unMUrW7VPj2FnPvBKZ')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
+        if(nombre.trim() !== '' && celular.trim() !== '' && correo.trim() !== '' && texto.trim() !== '') {
+            emailjs.sendForm('service_0cq64ye', 'template_8xfu7og', e.target, 'user_Pp0unMUrW7VPj2FnPvBKZ')
+            .then((result) => {
+                setMensaje(['Mensaje enviado correctamente', 'ok']);
+            }, (error) => {
+                setMensaje(['Hubo un error, favor de volverlo a intentar más tarde', 'error']);
+            });
+
+
+            e.target.reset();
+            setNombre('');
+            setCorreo('');
+            setCelular('');
+            setTexto('');
+            
+        } else {
+            setMensaje(['Todos los campos son obigatorios', 'error']);
+        }
+
+        setTimeout(() => {
+            setMensaje(null);
+        }, 4000);
+    }
+
+    const mostrarMensaje = () => {
+        if(mensaje[1] === 'ok') {
+            return (
+                <MensajeCorrecto>{mensaje[0]}</MensajeCorrecto>
+            )
+        } else {
+            return (
+                <MensajeError>{mensaje[0]}</MensajeError>
+            )
+        }
     }
 
     return ( 
@@ -89,6 +147,8 @@ const Formulario = () => {
                     placeholder="Nombre"
                     name="nombre"
                     id="nombre"
+                    value={nombre}
+                    onChange={e => setNombre(e.target.value)}
                 />
             </DivInput>
             <DivInput>
@@ -100,6 +160,8 @@ const Formulario = () => {
                     placeholder="5500000000"
                     name="celular"
                     id="celular"
+                    value={celular}
+                    onChange={e => setCelular(e.target.value)}
                 />
             </DivInput>
             <DivInput>
@@ -111,6 +173,8 @@ const Formulario = () => {
                     placeholder="Correo@correo.com"
                     name="correo"
                     id="correo"
+                    value={correo}
+                    onChange={e => setCorreo(e.target.value)}
                 />
             </DivInput>
             <DivInput>
@@ -121,8 +185,12 @@ const Formulario = () => {
                     placeholder="Mensaje"
                     name="mensaje"
                     id="mensaje"
+                    value={texto}
+                    onChange={e => setTexto(e.target.value)}
                 ></textarea>
             </DivInput>
+
+            {mensaje && mostrarMensaje()}
 
             <ContenedorEnviar>
                 <Enviar
