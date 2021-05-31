@@ -28,7 +28,7 @@ const ElementosContacto = () => {
     return ( 
         <Contenedor>
             <a
-                href="https://wa.me/525620931205"
+                href="https://wa.me/525626762600"
             >
                 <img 
                     src={Whatsapp}

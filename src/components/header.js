@@ -23,6 +23,10 @@ const Heading = styled.header`
     @media (min-width: 1100px) {
         padding: 2rem 6rem;
     }
+
+    @media (max-width: 550px) {
+        display: block;
+    }
 `;
 
 

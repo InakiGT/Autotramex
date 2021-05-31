@@ -28,6 +28,7 @@ const Enlace = styled(Link)`
 
     @media (max-width: 550px) {
         margin-bottom: 2rem;
+        display: none;
     }
 `;
 
