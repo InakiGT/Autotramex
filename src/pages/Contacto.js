@@ -8,7 +8,7 @@ import Telefono from '../components/telefono';
 import Correo from '../components/correo';
 import Formulario from '../components/formulario';
 
-import Whats from '../images/Whats-empresarial.svg';
+import Whats from '../images/Whats-empresarial.png';
 
 
 const Contenedor = styled.div`
@@ -154,10 +154,11 @@ const Contacto = () => {
                     <ContenedorImagen>
                         <img 
                             src={Whats}
+                            alt="Imagen Whatsapp"
                         />
                     </ContenedorImagen>
                     <Contactar>
-                        <h2>Llámanos a nuestros números o a nuestro correo</h2>
+                        <h2>Contáctanos por Whatsapp o a nuestro correo</h2>
                         <ContenedorContacto>
                             <Conct>
                                 <div>

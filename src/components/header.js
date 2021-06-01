@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 import Logo from './logo';
 import Navegacion from './navegacion';
+import Menu from './menu';
 
 const Heading = styled.header`
     background-color: #292929;
@@ -40,6 +41,7 @@ const Header = () => {
             </Link>
 
             <Navegacion />
+
         </Heading>
      );
 }
