@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {graphql, useStaticQuery} from 'gatsby';
 
 import Whatsapp from '../images/Whatsapp.svg';
-import Llamda from '../images/Llamada.svg';
+import Llamada from '../images/Llamada.svg';
 
 const Contenedor = styled.div`
     display: flex;
@@ -25,10 +26,24 @@ const Contenedor = styled.div`
 
 const ElementosContacto = () => {
 
+    const data = useStaticQuery(graphql`
+    query {
+        allDatoCmsNumero {
+            nodes {
+                numerocelular
+            }
+        }
+    }
+    `);
+
+    const listado = data.allDatoCmsNumero.nodes;
+
+    const aleatorio = Math.floor(Math.random()*listado.length);
+
     return ( 
         <Contenedor>
             <a
-                href="https://wa.me/525626762600"
+                href={`https://wa.me/52${listado[aleatorio].numerocelular}`}
             >
                 <img 
                     src={Whatsapp}
@@ -36,10 +51,10 @@ const ElementosContacto = () => {
                 />
             </a>
             <a
-                href="tel:5620931205"
+                href={`tel:${listado[aleatorio].numerocelular}`}
             >
                 <img
-                    src={Llamda}
+                    src={Llamada}
                     alt="Icono Llamada"
                 />
             </a>

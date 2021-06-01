@@ -63,13 +63,16 @@ const Tramit = styled.p`
   flex: 0 0 calc(100%);
 `;
 
-const ContenedorServicios = styled.div`
-
-`;
-
 const Btn = styled.div`
   text-align: center;
   margin: 6rem 0;
+`;
+
+const Texto = styled.p`
+  font-weight: bold;
+  font-size: 3.6rem;
+  line-height: 1.5;
+  margin: 0;
 `;
 
 const IndexPage = () => {
@@ -80,6 +83,12 @@ const IndexPage = () => {
 
         <div>
         </div>
+
+        <Seccion>
+          <ContenedorTramites>
+            <Texto>SOLICITA TUS TRAMITES O ACLARA TUS DUDAS. <br /> NO ESPERES MAS</Texto>
+          </ContenedorTramites>
+        </Seccion>
 
         <Seccion>
           <h2>Sobre nosotros</h2>
@@ -118,9 +127,9 @@ const IndexPage = () => {
 
         <Seccion>
           <h2>Servicios</h2>
-          <ContenedorServicios>
+          <div>
             <ServicioIndex />
-          </ContenedorServicios>
+          </div>
           <Btn>
             <Boton 
               text={"Nuestros servicios"}

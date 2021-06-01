@@ -21,7 +21,7 @@ const Instagram = () => {
 
     return (
         <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/autotramex"
         >
             <Img 
                 fluid={ins.placeholderImage.childImageSharp.fluid}
