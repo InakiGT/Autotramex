@@ -10,7 +10,9 @@ const Nav = styled.nav`
     align-items: center;
 
     @media (max-width: 550px) {
+        flex: 0 0 calc(100%);
         flex-direction: column;
+        margin-top: 2rem;
     }
 `;
 
@@ -34,7 +36,6 @@ const Enlace = styled(Link)`
 
     @media (max-width: 550px) {
         margin-bottom: 2rem;
-        display: none;
     }
 `;
 

@@ -9,6 +9,7 @@ import Menu from './menu';
 const Heading = styled.header`
     background-color: #292929;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
@@ -35,6 +36,8 @@ const Boton = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 `;
 
 
