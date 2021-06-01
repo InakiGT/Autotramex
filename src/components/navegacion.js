@@ -50,6 +50,11 @@ const Navegacion = ({setMenu, menu}) => {
     return ( 
         <Nav>
             <Enlace
+                to={'/'}
+            >
+                <p>Inicio</p>
+            </Enlace>
+            <Enlace
                 to={'/Nosotros'}
             >
                 <p>Nosotros</p>

@@ -15,6 +15,7 @@ const Contenedor = styled.div`
   h1 {
       font-size: 5.5rem;
       text-align: center;
+      line-height: 1;
   }
 
   @media (max-width: 1100px) {
