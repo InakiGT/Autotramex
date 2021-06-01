@@ -13,6 +13,7 @@ const Contenedor = styled.div`
 
   @media (max-width: 1100px) {
     max-width: 90%;
+    margin-top: 15rem;
   }
 `;
 
@@ -70,7 +71,7 @@ const Btn = styled.div`
 
 const Texto = styled.p`
   font-weight: bold;
-  font-size: 3.6rem;
+  font-size: 4rem;
   line-height: 1.5;
   margin: 0;
 `;

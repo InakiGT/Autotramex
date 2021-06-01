@@ -21,6 +21,7 @@ const Contenedor = styled.div`
 
   @media (max-width: 1100px) {
     max-width: 90%;
+    margin-top: 15rem;
   }
 `;
 

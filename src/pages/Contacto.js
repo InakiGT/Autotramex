@@ -8,6 +8,8 @@ import Telefono from '../components/telefono';
 import Correo from '../components/correo';
 import Formulario from '../components/formulario';
 
+import Whats from '../images/Whats-empresarial.svg';
+
 
 const Contenedor = styled.div`
   max-width: 1000px;
@@ -15,13 +17,27 @@ const Contenedor = styled.div`
 
 
   h1 {
-      font-size: 5.5rem;
-      text-align: center;
+    font-size: 5.5rem;
+    text-align: center;
   }
 
   @media (max-width: 1100px) {
     max-width: 90%;
+    margin-top: 15rem;
   }
+`;
+
+const ContenedorImagen = styled.div`
+    margin: 2rem auto 0 auto;
+    text-align: center;
+
+    img {
+        max-width: 90%;
+    }
+
+    @media (max-width: 550px) {
+        display: none;
+    }
 `;
 
 const Contactar = styled.div`
@@ -135,7 +151,11 @@ const Contacto = () => {
             <Contenedor>
                 <h1>Contacto</h1>
                 <div>
-
+                    <ContenedorImagen>
+                        <img 
+                            src={Whats}
+                        />
+                    </ContenedorImagen>
                     <Contactar>
                         <h2>Llámanos a nuestros números o a nuestro correo</h2>
                         <ContenedorContacto>
