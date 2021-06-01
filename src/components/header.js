@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -26,12 +26,22 @@ const Heading = styled.header`
     }
 
     @media (max-width: 550px) {
-        display: block;
+        display: flex;
     }
+`;
+
+const Boton = styled.button`
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 `;
 
 
 const Header = () => {
+    //State del menú de navegación
+    const [menu, setMenu] = useState(false);
+
     return ( 
         <Heading>
             <Link
@@ -39,8 +49,19 @@ const Header = () => {
             >
                 <Logo />
             </Link>
+            {!menu ? (
 
-            <Navegacion />
+            <Boton
+                onClick={() => setMenu(!menu)}
+            >
+                <Menu />
+            </Boton>
+            ) : (
+                <Navegacion
+                    setMenu={setMenu}
+                    menu={menu}
+                />
+            )}
 
         </Heading>
      );

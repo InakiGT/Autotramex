@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
+import Close from '../images/Close.svg'
+
 const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
@@ -18,6 +20,10 @@ const Enlace = styled(Link)`
     font-size: 3rem;
     transition: all .3s ease;
 
+    p {
+        margin: 0;
+    }
+
     &:hover {
         color: rgba(255, 255, 255, 75%);
     }
@@ -32,7 +38,14 @@ const Enlace = styled(Link)`
     }
 `;
 
-const Navegacion = () => {
+const Boton = styled.button`
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+`;
+
+const Navegacion = ({setMenu, menu}) => {
     return ( 
         <Nav>
             <Enlace
@@ -55,6 +68,14 @@ const Navegacion = () => {
             >
                 <p>Contacto</p>
             </Enlace>
+            <Boton
+                onClick={() => setMenu(!menu)}
+            >
+                <img
+                    src={Close}
+                    alt="Cerrar"
+                />
+            </Boton>
         </Nav>
     );
 }
