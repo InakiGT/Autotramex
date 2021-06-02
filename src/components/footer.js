@@ -39,7 +39,7 @@ const Principales = styled.p`
 
 const Secundario = styled.div`
     font-size: 3.5rem;
-    flex: 0 0 calc(33% - 3rem);
+    flex: 0 0 calc(25% - 3rem);
 
     a {
         text-decoration: none;
@@ -54,16 +54,15 @@ const Secundario = styled.div`
     p {
         margin: 1rem 0;
     }
+    @media (max-width: 550px) {
+        margin-top: 4rem;
+    }
 `;
 
 const Redes = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media (max-width: 550px) {
-        margin-bottom: 3rem;
-    }
 `;
 
 const Red = styled.div`
@@ -78,6 +77,25 @@ const Derechos = styled.div`
     padding: 1.5rem 0;
     p {
         margin: 0;
+    }
+`;
+
+const Diseno = styled.p`
+    font-size: 4rem;
+    margin: 0 0 3rem 0!important;
+`;
+
+const Hasen = styled.p`
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+`;
+
+const Inaki = styled.p`
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.8rem;
+
+    span {
+        font-weight: 700;
     }
 `;
 
@@ -115,11 +133,16 @@ const Footer = () => {
                     <Principales>Contacto</Principales>
                     <div>
                         <p>Tel. <a href="tel:525620931205">{listado[aleatorio].numerocelular}</a></p>
-                        <a href="https://wa.me/525620931205">Whatsapp</a>
+                        <a href={`https://api.whatsapp.com/send?phone=52${listado[aleatorio].numerocelular}&text=Hola`}>Whatsapp</a>
                     </div>
                 </Secundario>
                 <Secundario>
-                    <p></p>
+                    <Diseno>Diseño</Diseno>
+                    <Hasen><a href="https://www.facebook.com/HasenMkt/">Hasen</a></Hasen>
+                </Secundario>
+                <Secundario>
+                    <Diseno>Diseño y Programación</Diseno>
+                    <Inaki><a href="https://twitter.com/InakiTenorio">{`{ Iñaki`}<span>Devs</span>{` }`}</a></Inaki>
                 </Secundario>
             </Contenedor>
             <Derechos>
