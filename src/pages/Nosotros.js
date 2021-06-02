@@ -95,6 +95,9 @@ const Nosotros = () => {
                     />
                 </Contenido>
                 <Contenido>
+                    <p>Pensando en algunas de tus necesidades creamos Autotramex, una empresa vehicular integral, nuestros servicios abarcan desde la gestión de tus trámites vehiculares, asesoría en la compra y venta vehicular entre particulares, cotización y orientación en la compra de tu seguro vehicular entre varias opciones o si lo prefieres administramos la flotilla vehicular de tu empresa (gasolinas, talleres, servicios, tramites,  etc.) en resumen, Autotramex se encarga de tu vehículo mientras tu solo disfrutas manejarlo</p>
+                </Contenido>
+                <Contenido>
                     <h2>Sobre nosotros</h2>
                     <p>{data.allDatoCmsNosotro.nodes[0].contenidoSobrenosotros}</p>
                 </Contenido>
