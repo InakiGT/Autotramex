@@ -46,6 +46,13 @@ const Contenido = styled.div`
     }
 `;
 
+const Adicional = styled.p`
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 1rem 0 0 0;
+    text-transform: uppercase;
+`;
+
 const Tramite = ({tramite, requisitos}) => {
 
     return ( 
@@ -80,6 +87,7 @@ const Tramite = ({tramite, requisitos}) => {
                     }
                 </ol>
             </Contenido>
+            <Adicional>Sujeto a cambio sin previo aviso</Adicional>
         </Tramit>
      );
 }
