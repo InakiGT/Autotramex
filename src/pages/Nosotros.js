@@ -102,23 +102,8 @@ const Nosotros = () => {
                     <p>{data.allDatoCmsNosotro.nodes[0].contenidoSobrenosotros}</p>
                 </Contenido>
                 <Contenido>
-                    <h2>¿Quiénes Somos?</h2>
+                    <h2>¿Cómo operamos?</h2>
                     <p>{data.allDatoCmsNosotro.nodes[0].contenidoQuienessomos}</p>
-                </Contenido>
-                <Contenido>
-                    <h2>Nuestro proceso</h2>
-                    <ol>
-                        <li>Autotramex envía liga de solicitud de trámite vehicular</li>
-                        <li>Cliente llena solicitud de trámite nuevo de manera digital y sube documentos a la
-                        carpeta asignada</li>
-                        <li>Cliente recibe sus trámites, se envia evidencia de entrega para efectuar facturación
-                        correspondiente</li>
-                        <li>Asesor solicita el trámite en la entidad indicada</li>
-                        <li>Una vez que el trámite fue concluido, el área de logística notifica al cliente y coordinar
-                        la entrega.</li>
-                        <li>Cliente recibe sus trámites, se envía evidencia de entrega para efectuar facturación
-                        correspondiente</li>
-                    </ol>
                 </Contenido>
                 <Adicional>
                     <p>Autotramex pone a disposición de cada cliente, el envío de reportes históricos de los trámites realizados.</p>

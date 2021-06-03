@@ -79,6 +79,8 @@ const Conct = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
 
     div {
         flex: 0 0 calc(50% - 1rem);
@@ -86,6 +88,7 @@ const Conct = styled.div`
 
     p {
         font-size: 4.7rem;
+        margin: 0 0 5rem 0;
     }
 
     @media (max-width: 768px) {
@@ -96,6 +99,25 @@ const Conct = styled.div`
         p {
             font-size: 3.5rem;
         }
+    }
+
+    @media (max-width: 550px) {
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: 340px) {
+        p {
+            font-size: 3rem;
+        }
+    }
+`;
+
+const Tels = styled.div`
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-around;
     }
 `;
 
@@ -163,7 +185,7 @@ const Contacto = () => {
                             <Conct>
                                 <div>
                                     <p>Tels:</p>
-                                    <div>
+                                    <Tels>
                                         {
                                             data.allDatoCmsNumero.nodes.map(numero => (
                                                 <Telefono
@@ -172,7 +194,7 @@ const Contacto = () => {
                                                 />
                                             ))
                                         }
-                                    </div>
+                                    </Tels>
                                 </div>
                                 <div>
                                     <p>Correos:</p>
