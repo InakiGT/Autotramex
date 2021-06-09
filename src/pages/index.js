@@ -6,6 +6,7 @@ import Layout from "../components/layout";
 import Boton from '../components/boton';
 import ServicioIndex from '../components/servicioindex';
 import IndexNosotros from '../components/indexnosotros';
+import Opiniones from '../components/opiniones';
 
 const Contenedor = styled.div`
   max-width: 1000px;
@@ -137,6 +138,11 @@ const IndexPage = () => {
               to={"Servicios"}
             />
           </Btn>
+        </Seccion>
+
+        <Seccion>
+          <h2>Algunas opiniones de nuestros clientes</h2>
+          <Opiniones />
         </Seccion>
 
       </Contenedor>

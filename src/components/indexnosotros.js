@@ -55,7 +55,7 @@ const IndexNosotros = () => {
         <>
           <ContenedorNosotros>
                 <Nosotros>
-                    <TitutloNosotros>¿Quiénes somos?</TitutloNosotros>
+                    <TitutloNosotros>¿Cómo operamos?</TitutloNosotros>
                     <TextoNosotros>{data.allDatoCmsNosotro.nodes[0].contenidoQuienessomos}</TextoNosotros>
                 </Nosotros>
                 <Nosotros>

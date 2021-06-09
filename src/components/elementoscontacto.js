@@ -43,7 +43,7 @@ const ElementosContacto = () => {
     return ( 
         <Contenedor>
             <a
-                href={`https://api.whatsapp.com/send?phone=52${listado[aleatorio].numerocelular}&text=Hola`}
+                href={`https://api.whatsapp.com/send?phone=52${listado[aleatorio].numerocelular}&text=Buen día. Busco apoyo para realizar mis trámites vehiculares`}
             >
                 <img 
                     src={Whatsapp}

@@ -133,7 +133,7 @@ const Footer = () => {
                     <Principales>Contacto</Principales>
                     <div>
                         <p>Tel. <a href="tel:525620931205">{listado[aleatorio].numerocelular}</a></p>
-                        <a href={`https://api.whatsapp.com/send?phone=52${listado[aleatorio].numerocelular}&text=Hola`}>Whatsapp</a>
+                        <a href={`https://api.whatsapp.com/send?phone=52${listado[aleatorio].numerocelular}&text=Buen día. Busco apoyo para realizar mis trámites vehiculares`}>Whatsapp</a>
                     </div>
                 </Secundario>
                 <Secundario>
