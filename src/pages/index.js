@@ -7,6 +7,7 @@ import Boton from '../components/boton';
 import ServicioIndex from '../components/servicioindex';
 import IndexNosotros from '../components/indexnosotros';
 import Opiniones from '../components/opiniones';
+import Emergente from '../components/emergente';
 
 const Contenedor = styled.div`
   max-width: 1000px;
@@ -83,8 +84,9 @@ const IndexPage = () => {
     <Layout>
       <Contenedor>
 
-        <div>
-        </div>
+        <Seccion>
+          <Emergente />
+        </Seccion>
 
         <Seccion>
           <ContenedorTramites>
