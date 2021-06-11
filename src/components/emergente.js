@@ -1,5 +1,5 @@
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
-import React from 'react';
 
 
 const Contenedor = styled.div`
@@ -8,8 +8,14 @@ const Contenedor = styled.div`
     text-align: center;
     padding: 4rem 1rem;
     width: 90rem;
-    margin: 0 auto;
     position: fixed;
+    z-index: 3;
+    top: 25%;
+    left: 23%;
+
+    @media (max-width: 550px) {
+        display: none;
+    }
 `;
 
 const Titulo = styled.p`
@@ -59,39 +65,73 @@ const Boton = styled.button`
     }
 `;
 
+const Cerrar = styled.div`
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
+    margin-right: 4rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+`;
+
+const Close = styled.button`
+    border: none;
+    background-color: transparent;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: .3s all ease;
+
+    &:hover {
+        color: #FFF;
+    }
+`;
+
 const Emergente = () => {
+
+    const [estado, setEstado] = useState(true);
+
     return (
-        <Contenedor>
-            <div>
-                <Titulo>Contactanos</Titulo>
-                <Sub>y te contestaremos lo más pronto posible</Sub>
-            </div>
-            <Formulario>
-                <input
-                    type="text"
-                    placeholder="Nombre"
-                />
-                <input
-                    type="text"
-                    placeholder="Correo"
-                />
-                <input
-                    type="text"
-                    placeholder="Celular"
-                />
-                <input
-                    type="text"
-                    placeholder="¿Cómo podemos ayudarte?"
-                />
-                <div>
-                    <Boton
-                        type="submit"
-                    >
-                        Enviar
-                    </Boton>
-                </div>
-            </Formulario>
-        </Contenedor>
+        <>
+            {estado && (
+                <Contenedor>
+                    <Cerrar>
+                        <Close
+                            onClick={() => setEstado(!estado)}
+                        >Cerrar</Close>
+                    </Cerrar>
+                    <div>
+                        <Titulo>Contactanos</Titulo>
+                        <Sub>y te contestaremos lo más pronto posible</Sub>
+                    </div>
+                    <Formulario>
+                        <input
+                            type="text"
+                            placeholder="Nombre"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Correo"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Celular"
+                        />
+                        <input
+                            type="text"
+                            placeholder="¿Cómo podemos ayudarte?"
+                        />
+                        <div>
+                            <Boton
+                                type="submit"
+                            >
+                                Enviar
+                            </Boton>
+                        </div>
+                    </Formulario>
+                </Contenedor>
+            )}
+        </>
      );
 }
  
