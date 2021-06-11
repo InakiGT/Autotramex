@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled';
+import emailjs from 'emailjs-com';
 
 
 const Contenedor = styled.div`
@@ -10,11 +11,24 @@ const Contenedor = styled.div`
     width: 90rem;
     position: fixed;
     z-index: 3;
-    top: 25%;
-    left: 23%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation-duration: 1.5s;
+    animation-name: aparecer;
 
     @media (max-width: 550px) {
-        display: none;
+        max-width: 90%;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%;
+        }
     }
 `;
 
@@ -35,6 +49,8 @@ const Formulario = styled.form`
     display: flex;
     align-items: center;
     flex-direction: column;
+    animation-duration: 1.7s;
+    animation-name: bajar;
 
     input {
         margin-bottom: 2rem;
@@ -44,6 +60,16 @@ const Formulario = styled.form`
         font-weight: 300;
         width: 80%;
         border: none;
+    }
+
+    @keyframes bajar {
+        from {
+            margin-top: 100rem;
+        }
+
+        to {
+            margin-top: 0;
+        }
     }
 `;
 
@@ -85,11 +111,82 @@ const Close = styled.button`
     &:hover {
         color: #FFF;
     }
+
+    @media (max-width: 550px) {
+        margin-bottom: 2rem;
+    }
+`;
+
+const MensajeCorrecto = styled.div`
+    text-align: center;
+    background-color: rgba(127, 247, 95, 80%);
+    max-width: 60%;
+    margin: 0 auto 2rem auto;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+`;
+
+const MensajeError = styled.div`
+    text-align: center;
+    background-color: rgba(248, 68, 60, 80%);
+    max-width: 60%;
+    margin: 0 auto 2rem auto;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
 `;
 
 const Emergente = () => {
 
     const [estado, setEstado] = useState(true);
+    const [mensaje, setMensaje] = useState(null);
+
+    //State del formulario
+    const [nombre, setNombre] = useState('');
+    const [correo, setCorreo] = useState('');    
+    const [celular, setCelular] = useState('');
+    const [texto, setTexto] = useState('');
+
+    const enviarForm = e => {
+        e.preventDefault();
+        if(nombre.trim() !== '' && celular.trim() !== '' && correo.trim() !== '' && texto.trim() !== '') {
+            emailjs.sendForm('service_0cq64ye', 'template_8xfu7og', e.target, 'user_Pp0unMUrW7VPj2FnPvBKZ')
+                .then((result) => {
+                    setMensaje(['Mensaje enviado correctamente', 'ok']);
+                }, (error) => {
+                    setMensaje(['Hubo un error, favor de volverlo a intentar más tarde', 'error']);
+                });
+
+
+            e.target.reset();
+
+            setTimeout(() => {
+                setEstado(!estado);
+            }, 3000);
+
+        } else {
+            setMensaje(['Todos los campos son obigatorios', 'error']);
+        }
+
+        setTimeout(() => {
+            setMensaje(null);
+        }, 3000);
+    }
+
+    const mostrarMensaje = () => {
+        if(mensaje[1] === 'ok') {
+            return (
+                <MensajeCorrecto>{mensaje[0]}</MensajeCorrecto>
+            )
+        } else {
+            return (
+                <MensajeError>{mensaje[0]}</MensajeError>
+            )
+        }
+    }
 
     return (
         <>
@@ -103,23 +200,34 @@ const Emergente = () => {
                     <div>
                         <Titulo>Contactanos</Titulo>
                         <Sub>y te contestaremos lo más pronto posible</Sub>
+                        {mensaje && mostrarMensaje()}
                     </div>
-                    <Formulario>
+                    <Formulario
+                        onSubmit={e => enviarForm(e)}
+                    >
                         <input
                             type="text"
                             placeholder="Nombre"
+                            name="nombre"
+                            onChange={e => setNombre(e.target.value)}
                         />
                         <input
                             type="text"
                             placeholder="Correo"
+                            name="correo"
+                            onChange={e => setCorreo(e.target.value)}
                         />
                         <input
                             type="text"
                             placeholder="Celular"
+                            name="celular"
+                            onChange={e => setCelular(e.target.value)}
                         />
                         <input
                             type="text"
                             placeholder="¿Cómo podemos ayudarte?"
+                            name="mensaje"
+                            onChange={e => setTexto(e.target.value)}
                         />
                         <div>
                             <Boton
