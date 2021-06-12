@@ -141,7 +141,7 @@ const MensajeError = styled.div`
 
 const Emergente = () => {
 
-    const [estado, setEstado] = useState(true);
+    const [estado, setEstado] = useState(false);
     const [mensaje, setMensaje] = useState(null);
 
     //State del formulario

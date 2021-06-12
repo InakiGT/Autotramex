@@ -8,6 +8,8 @@ import ServicioIndex from '../components/servicioindex';
 import IndexNosotros from '../components/indexnosotros';
 import Opiniones from '../components/opiniones';
 import Emergente from '../components/emergente';
+import Hero from '../components/hero';
+
 
 const Contenedor = styled.div`
   max-width: 1000px;
@@ -83,9 +85,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <Contenedor>
-
+        <Emergente />
         <Seccion>
-          <Emergente />
+          <Hero />
         </Seccion>
 
         <Seccion>
