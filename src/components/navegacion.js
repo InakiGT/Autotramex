@@ -8,11 +8,26 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation-duration: 3s;
+    animation-name: animacion;
+    margin: 0;
+
+    @keyframes animacion {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%;
+        }
+    }
 
     @media (max-width: 550px) {
         flex: 0 0 calc(100%);
         flex-direction: column;
         margin-top: 2rem;
+        animation-duration: .5s;
+        animation-name: unset;
     }
 `;
 
