@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import {Link} from 'gatsby';
 
 import Layout from "../components/layout";
-
 import Boton from '../components/boton';
 import ServicioIndex from '../components/servicioindex';
 import IndexNosotros from '../components/indexnosotros';
@@ -80,6 +80,17 @@ const Texto = styled.p`
   margin: 0;
 `;
 
+const Enlace = styled(Link)`
+  text-decoration: none;
+  color: #FFF;
+  transition: .4s all ease-in;
+
+  &:hover {
+    transform: scale(1.2);
+    color: #930001;
+  }
+`;
+
 const IndexPage = () => {
 
   return (
@@ -92,7 +103,11 @@ const IndexPage = () => {
 
         <Seccion>
           <ContenedorTramites>
-            <Texto>SOLICITA TUS TRAMITES O ACLARA TUS DUDAS. <br /> NO ESPERES MAS</Texto>
+            <Enlace
+              to={'/Contacto'}
+            >
+              <Texto>SOLICITA TUS TRÁMITES O ACLARA TUS DUDAS. <br /> NO ESPERES MAS</Texto>
+            </Enlace>
           </ContenedorTramites>
         </Seccion>
 

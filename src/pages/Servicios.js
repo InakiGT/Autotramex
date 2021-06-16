@@ -163,7 +163,7 @@ const Servicios = () => {
                         <p>¿Quieres saber más o deseas contratar alguno de nuestros servicios?</p>
                         <Boton 
                             to={'/Contacto'}
-                            text={'Contactanos'}
+                            text={'Contáctanos'}
                         />
                     </SaberMas>
                 </div>

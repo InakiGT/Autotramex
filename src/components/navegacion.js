@@ -42,7 +42,8 @@ const Enlace = styled(Link)`
     }
 
     &:hover {
-        color: rgba(255, 255, 255, 75%);
+        color: #930001;
+        transform: scale(1.2);
     }
 
     @media (min-width: 768px) {

@@ -22,6 +22,7 @@ const Facebook = () => {
     return (
         <a
             href="https://www.facebook.com/Autotramex"
+            target="_blank"
         >
             <Img 
                 fluid={fb.placeholderImage.childImageSharp.fluid}

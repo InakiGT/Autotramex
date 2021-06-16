@@ -22,6 +22,7 @@ const Instagram = () => {
     return (
         <a
             href="https://www.instagram.com/autotramex"
+            target="_blank"
         >
             <Img 
                 fluid={ins.placeholderImage.childImageSharp.fluid}

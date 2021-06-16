@@ -115,7 +115,7 @@ const Tramites = () => {
                         <p>¿Quieres saber más acerca de algún trámite?</p>
                         <Boton 
                             to={'/Contacto'}
-                            text={'Contactanos'}
+                            text={'Contáctanos'}
                         />
                     </SaberMas>
                 </div>

@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com';
 
 
 const Contenedor = styled.div`
-    background-color: rgba(227, 228, 229, 84%);
+    background-color: rgba(46, 47, 47, 84%);
     font-family: 'PT Sans', sans-serif;
     text-align: center;
     padding: 4rem 1rem;
@@ -74,7 +74,7 @@ const Formulario = styled.form`
 `;
 
 const Boton = styled.button`
-    background-color: rgba(51, 51, 51, 95%);
+    background-color: #930001;;
     border: none;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
@@ -87,7 +87,7 @@ const Boton = styled.button`
     margin-top: 2rem;
 
     &:hover {
-        background-color: rgb(65, 65, 65);
+        background-color: #B40001;;
     }
 `;
 
@@ -107,9 +107,10 @@ const Close = styled.button`
     font-size: 1.6rem;
     cursor: pointer;
     transition: .3s all ease;
+    color: #FFF;
 
     &:hover {
-        color: #FFF;
+        color: #000;
     }
 
     @media (max-width: 550px) {
@@ -198,8 +199,8 @@ const Emergente = () => {
                         >Cerrar</Close>
                     </Cerrar>
                     <div>
-                        <Titulo>Contactanos</Titulo>
-                        <Sub>y te contestaremos lo más pronto posible</Sub>
+                        <Titulo>Contáctanos</Titulo>
+                        <Sub></Sub>
                         {mensaje && mostrarMensaje()}
                     </div>
                     <Formulario
@@ -225,7 +226,7 @@ const Emergente = () => {
                         />
                         <input
                             type="text"
-                            placeholder="¿Cómo podemos ayudarte?"
+                            placeholder="¿Cómo podemos apoyarte?"
                             name="mensaje"
                             onChange={e => setTexto(e.target.value)}
                         />

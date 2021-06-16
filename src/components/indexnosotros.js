@@ -31,10 +31,14 @@ const Nosotros = styled.div`
 const TitutloNosotros = styled.p`
   margin-top: 0;
   font-size: 4.2rem;
+  color: #930001;
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const TextoNosotros = styled.p`
   font-size: 2.7rem;
+  text-align: justify;
 `;
 
 const IndexNosotros = () => {

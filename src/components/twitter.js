@@ -22,6 +22,7 @@ const Twitter = () => {
     return (
         <a
             href="https://twitter.com/autotramex"
+            target="_blank"
         >
             <Img 
                 fluid={tw.placeholderImage.childImageSharp.fluid}
