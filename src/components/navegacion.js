@@ -52,6 +52,13 @@ const Enlace = styled(Link)`
 
     @media (max-width: 550px) {
         margin-bottom: 2rem;
+        border-bottom: .5px solid rgba(255, 255, 255, 30%);
+        width: 65%;
+        text-align: center;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
     }
 `;
 
@@ -60,6 +67,10 @@ const Boton = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
+
+    @media (min-width: 550px) {
+        display: none;
+    }
 `;
 
 const Navegacion = ({setMenu, menu}) => {

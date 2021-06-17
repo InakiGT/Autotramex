@@ -138,11 +138,11 @@ const Footer = () => {
                 </Secundario>
                 <Secundario>
                     <Diseno>Diseño</Diseno>
-                    <Hasen><a href="https://www.facebook.com/HasenMkt/" target="_blank">Hasen</a></Hasen>
+                    <Hasen><a href="https://www.facebook.com/HasenMkt/" target="_blank" rel="noreferrer">Hasen</a></Hasen>
                 </Secundario>
                 <Secundario>
                     <Diseno>Diseño y Programación</Diseno>
-                    <Inaki><a href="https://twitter.com/InakiTenorio" target="_blank">{`{ Iñaki`}<span>Devs</span>{` }`}</a></Inaki>
+                    <Inaki><a href="https://twitter.com/InakiTenorio" target="_blank" rel="noreferrer">{`{ Iñaki`}<span>Devs</span>{` }`}</a></Inaki>
                 </Secundario>
             </Contenedor>
             <Derechos>

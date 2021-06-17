@@ -23,6 +23,7 @@ const Twitter = () => {
         <a
             href="https://twitter.com/autotramex"
             target="_blank"
+            rel="noreferrer"
         >
             <Img 
                 fluid={tw.placeholderImage.childImageSharp.fluid}

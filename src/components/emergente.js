@@ -36,7 +36,7 @@ const Titulo = styled.p`
     font-size: 4rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin: 0 0 2rem 0;
+    margin: 0 0 4rem 0;
 `;
 
 const Sub = styled.p`

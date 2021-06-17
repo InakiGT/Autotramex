@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 import Logo from './logo';
 import Navegacion from './navegacion';
-import Menu from './menu';
+import MovilMenu from './movilMenu';
 
 const Heading = styled.header`
     background-color: #292929;
+    padding: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
     -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
     -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
@@ -31,42 +31,36 @@ const Heading = styled.header`
     }
 `;
 
-const Boton = styled.button`
-    text-decoration: none;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
+const Contenedor = styled.div`   
 `;
 
+const Nav = styled.div`
+    @media (max-width: 550px) {
+        display: none;
+    }
+`;
 
 const Header = () => {
-    //State del menú de navegación
+
     const [menu, setMenu] = useState(false);
 
     return ( 
-        <Heading>
-            <Link
-                to={'/'}
-            >
+        <>
+            <Heading>
+                <Link
+                    to={'/'}
+                >
                 <Logo />
-            </Link>
-            {!menu ? (
-
-            <Boton
-                onClick={() => setMenu(!menu)}
-            >
-                <Menu />
-            </Boton>
-            ) : (
-                <Navegacion
-                    setMenu={setMenu}
-                    menu={menu}
-                />
-            )}
-
-        </Heading>
+                </Link>
+                <Nav>
+                    <Navegacion
+                        setMenu={setMenu}
+                        menu={menu}
+                    />
+                </Nav>
+                <MovilMenu />
+            </Heading>
+        </>
      );
 }
  

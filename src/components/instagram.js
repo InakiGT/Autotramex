@@ -23,6 +23,7 @@ const Instagram = () => {
         <a
             href="https://www.instagram.com/autotramex"
             target="_blank"
+            rel="noreferrer"
         >
             <Img 
                 fluid={ins.placeholderImage.childImageSharp.fluid}
