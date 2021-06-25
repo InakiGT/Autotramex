@@ -33,6 +33,11 @@ const Titulo = styled.p`
     margin-bottom: 1rem;
 `;
 
+const Imagen = styled.div`
+    margin: 3rem 0;
+    font-weight: lighter;
+`;
+
 const Contenido = styled.div`
     display: flex;
     justify-content: space-between;
@@ -92,6 +97,17 @@ const Servicios = () => {
 
     const data = useStaticQuery(graphql`
         query {
+            allDatoCmsImagenServicio {
+                nodes {
+                    imagen {
+                        alt
+                        fluid {
+                          ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            } 
+
             allDatoCmsServicio {
                 nodes {
                     titulo
@@ -105,6 +121,7 @@ const Servicios = () => {
                     }
                 }
             }
+            
             allDatoCmsPresentacionTramite {
                 nodes {
                     texto
@@ -123,6 +140,17 @@ const Servicios = () => {
         <Layout>
             <Contenedor>
                 <h1>Servicios</h1>
+                <Imagen>
+                    <Img
+                        fluid={data.allDatoCmsImagenServicio.nodes[0].imagen.fluid}
+                        alt={data.allDatoCmsImagenServicio.nodes[0].imagen.alt}
+                        css={css`
+                            max-width: 100%;
+                            max-height: 800px;
+                            margin: 0;
+                        `}
+                    />
+                </Imagen>
                 <div>
 
                     {

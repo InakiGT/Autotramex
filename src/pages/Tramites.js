@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {graphql, useStaticQuery} from 'gatsby';
+import Img from 'gatsby-image';
+import {css} from '@emotion/react';
 
 import Layout from '../components/layout';
 import Boton from '../components/boton';
@@ -22,6 +24,11 @@ const Contenedor = styled.div`
     max-width: 90%;
     margin-top: 15rem;
   }
+`;
+
+const Imagen = styled.div`
+    margin: 3rem 0;
+    font-weight: lighter;
 `;
 
 const SaberMas = styled.div`
@@ -63,6 +70,17 @@ const Tramites = () => {
 
     const data = useStaticQuery(graphql`
         query {
+            allDatoCmsImagenTramite {
+                nodes {
+                    imagen {
+                        alt
+                        fluid {
+                            ...GatsbyDatoCmsFluid
+                        }
+                    }
+                }
+            } 
+            
             allDatoCmsTramite {
                 nodes {
                     titulo
@@ -90,7 +108,17 @@ const Tramites = () => {
         <Layout>
             <Contenedor>
                 <h1>Trámites y requisitos</h1>
-
+                <Imagen>
+                    <Img
+                        fluid={data.allDatoCmsImagenTramite.nodes[0].imagen.fluid}
+                        alt={data.allDatoCmsImagenTramite.nodes[0].imagen.alt}
+                        css={css`
+                            max-width: 100%;
+                            max-height: 800px;
+                            margin: 0;
+                        `}
+                    />
+                </Imagen>
                 <div>
                     {
                         data.allDatoCmsTramite.nodes.map(tramite => (
