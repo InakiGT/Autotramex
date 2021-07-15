@@ -11,8 +11,20 @@ const Contenedor = styled.div`
     flex-direction: column;
     position: fixed;
     z-index: 2;
-    bottom: 20px;
+    bottom: 50px;
     right: 20px;
+    animation-duration: 4.5s;
+    animation-name: aparecer;
+
+    @keyframes aparecer {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%;
+        }
+    }
 
     img {
         width: 60px;
