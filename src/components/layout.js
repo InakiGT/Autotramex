@@ -7,7 +7,6 @@ import Footer from './footer';
 import ElementosContacto from './elementoscontacto';
 
 const Layout = ({ children }) => {
-
   return (
     <>
       <Global 
