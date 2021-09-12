@@ -142,7 +142,7 @@ const Footer = () => {
                 </Secundario>
                 <Secundario>
                     <Diseno>Diseño y Programación</Diseno>
-                    <Inaki><a href="https://twitter.com/InakiTenorio" target="_blank" rel="noreferrer">{`{ Iñaki`}<span>Devs</span>{` }`}</a></Inaki>
+                    <Inaki><a href="https://inakidev.com" target="_blank" rel="noreferrer">{`{ Iñaki`}<span>Devs</span>{` }`}</a></Inaki>
                 </Secundario>
             </Contenedor>
             <Derechos>
